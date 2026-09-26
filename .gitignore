@@ -1,0 +1,10 @@
+node_modules/
+dist/
+_preview_frames/
+preview/
+archive/
+.tools/
+*.log
+.env
+.env.*
+!.env.example
