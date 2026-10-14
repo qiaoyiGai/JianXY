@@ -64,6 +64,26 @@ const works = [
     video: './media/color-two.mp4',
     fullVideo: './media/color-two-hq.mp4',
   },
+  {
+    number: '07',
+    title: '大利实木工厂',
+    category: '口播作品',
+    description: '利挺胖东来，以有大爱的企业为榜样。',
+    poster: './media/dali-factory.webp',
+    video: './media/dali-factory.mp4',
+    fullVideo: './media/dali-factory-hq.mp4',
+    className: 'portrait',
+  },
+  {
+    number: '08',
+    title: '慕狮王',
+    category: '口播作品',
+    description: '经销商还算人吗？',
+    poster: './media/mushiwang.webp',
+    video: './media/mushiwang.mp4',
+    fullVideo: './media/mushiwang-hq.mp4',
+    className: 'portrait',
+  },
 ]
 
 const strengths = [
@@ -132,7 +152,7 @@ function WorkCard({ work, onOpen }) {
       </div>
       <div className="work-card__copy">
         <div>
-          <div className="work-card__meta"><span className="work-card__number">{work.number} / 06</span><span className="work-card__category">{work.category}</span></div>
+          <div className="work-card__meta"><span className="work-card__number">{work.number} / {String(works.length).padStart(2, '0')}</span><span className="work-card__category">{work.category}</span></div>
           <h3>{work.title}</h3>
           <p>{work.description}</p>
         </div>
@@ -266,7 +286,7 @@ export default function App() {
               <p className="about__intro reveal" data-reveal-delay=".08">你好，我是盖怡樵。我的工作围绕 AI编导与IP编导展开，关注一个想法如何变成能被看见、也值得被记住的内容。</p>
               <p className="about__body reveal" data-reveal-delay=".16">这里收录了剪辑、拍摄与调色作品。关于 AIGC 的更多项目，会随着作品完成继续加入。</p>
               <a className="about__mail reveal" data-reveal-delay=".24" href={`mailto:${email}`}><span className="about__mail-icon">✉</span>{email}<span aria-hidden="true">↗</span></a>
-              <div className="stats reveal" data-reveal-delay=".32"><div className="stat"><strong>06</strong><span>精选作品</span></div><div className="stat"><strong>03</strong><span>已收录方向</span></div><div className="stat"><strong>∞</strong><span>继续探索的画面</span></div></div>
+              <div className="stats reveal" data-reveal-delay=".32"><div className="stat"><strong>{String(works.length).padStart(2, '0')}</strong><span>精选作品</span></div><div className="stat"><strong>03</strong><span>已收录方向</span></div><div className="stat"><strong>∞</strong><span>继续探索的画面</span></div></div>
             </div>
           </div>
         </section>
