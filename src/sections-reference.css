@@ -1,6 +1,7 @@
 /* The original hero is intentionally untouched. These rules begin below it. */
 .about,
 .works,
+.aigc,
 .strengths,
 .contact {
   --section-ink: #273b61;
@@ -11,6 +12,7 @@
 
 .about .section-heading__meta,
 .works .section-heading__meta,
+.aigc .section-heading__meta,
 .strengths .section-heading__meta {
   gap: 18px;
   color: #65749c;
@@ -21,6 +23,7 @@
 
 .about .section-heading__meta .hairline,
 .works .section-heading__meta .hairline,
+.aigc .section-heading__meta .hairline,
 .strengths .section-heading__meta .hairline {
   width: 56px;
   background: #8f9fc4;
@@ -28,6 +31,7 @@
 
 .about .section-heading h2,
 .works .section-heading h2,
+.aigc .section-heading h2,
 .strengths .section-heading h2 {
   color: var(--section-ink);
   font-weight: 400;
@@ -184,8 +188,11 @@
   background: radial-gradient(ellipse at 10% 100%, rgba(251, 229, 218, .28) 0, transparent 47%), linear-gradient(180deg, #f6f7f9 0%, #faf9f7 58%, #fcfaf7 100%);
 }
 
-.strengths .section-heading { margin-bottom: 72px; }
-.strengths .section-heading h2 { margin-top: 25px; font-size: clamp(48px, 5vw, 86px); }
+.aigc { background: linear-gradient(180deg, #f4f6f9, #f6f7f9); }
+.aigc__empty { display: grid; place-items: center; min-height: 220px; padding: 32px; border-radius: 11px; text-align: center; }
+.aigc__empty p { margin: 0; color: var(--section-muted); font-size: 15px; }
+.aigc .section-heading, .strengths .section-heading { margin-bottom: 72px; }
+.aigc .section-heading h2, .strengths .section-heading h2 { margin-top: 25px; font-size: clamp(48px, 5vw, 86px); }
 .strengths .section-heading > p { color: #647188; }
 .strengths__grid { gap: clamp(16px, 2vw, 34px); }
 .strengths .strength-card {
@@ -268,13 +275,14 @@
 }
 
 @media (max-width: 700px) {
-  .about, .works, .strengths { padding-top: 100px; padding-bottom: 110px; }
+  .about, .works, .aigc, .strengths { padding-top: 100px; padding-bottom: 110px; }
   .about__layout { grid-template-columns: 1fr; gap: 55px; }
   .about__visual { order: 2; padding-top: 0; }
   .about__content { order: 1; }
   .about__portrait { width: min(70vw, 380px); }
   .about__content .section-heading h2,
   .works .section-heading h2,
+  .aigc .section-heading h2,
   .strengths .section-heading h2 { font-size: clamp(38px, 9vw, 58px); }
   .about__intro { margin-top: 36px; font-size: 15px; }
   .stats { margin-top: 48px; }

@@ -257,7 +257,7 @@ export default function App() {
             <p className="hero__lead">短视频编导/AI编导<br />从创意、影像到传播，认真对待每一帧表达。</p>
             <div className="hero__actions"><a className="button button--gold" href="#works">浏览作品 <span aria-hidden="true">↗</span></a><a className="text-link" href="#contact">联系我 <span aria-hidden="true">↓</span></a></div>
           </div>
-          <div className="hero__bottom container"><span>01 / 05</span><span>SCROLL TO EXPLORE</span><span className="hero__scroll-line" /></div>
+          <div className="hero__bottom container"><span>01 / 06</span><span>SCROLL TO EXPLORE</span><span className="hero__scroll-line" /></div>
         </section>
 
         <section className="about section-pad" id="about" aria-labelledby="about-title">
@@ -278,11 +278,15 @@ export default function App() {
         </section>
 
         <section className="works section-pad" id="works" aria-labelledby="works-title">
-          <div className="container"><SectionHeading index="03" english="VIDEO PORTFOLIO" title={<span id="works-title">视频作品展示区</span>} description="点击卡片观看完整视频，更多作品将陆续更新。" /><div className="works__grid">{works.map((work, index) => <WorkCard key={work.video} work={work} number={String(index + 1).padStart(2, '0')} onOpen={setActiveWork} />)}</div><p className="works__footnote">持续更新ing</p></div>
+          <div className="container"><SectionHeading index="03" english="VIDEO PORTFOLIO" title={<span id="works-title">拍剪作品展示区</span>} description="点击卡片观看完整视频，更多作品将陆续更新。" /><div className="works__grid">{works.map((work, index) => <WorkCard key={work.video} work={work} number={String(index + 1).padStart(2, '0')} onOpen={setActiveWork} />)}</div><p className="works__footnote">持续更新ing</p></div>
+        </section>
+
+        <section className="aigc section-pad" id="aigc" aria-labelledby="aigc-title">
+          <div className="container"><SectionHeading index="04" english="AIGC PORTFOLIO" title={<span id="aigc-title">AIGC展示区</span>} /><div className="aigc__empty glass reveal"><p>作品陆续更新中</p></div></div>
         </section>
 
         <section className="strengths section-pad" id="strengths" aria-labelledby="strengths-title">
-          <div className="container"><SectionHeading index="04" english="WHAT I DO" title={<span id="strengths-title">AIGC创作链路</span>} description="从一个小灵感到一段成品视频" /><div className="strengths__grid">{strengths.map((item) => <article className="strength-card glass reveal" key={item.number} data-reveal-delay={(Number(item.number) - 1) * .1} onMouseMove={moveCardLight}><div className="strength-card__top"><span className="strength-card__symbol" aria-hidden="true">{item.symbol}</span><span className="strength-card__number">/ {item.number}</span></div><h3>{item.title}</h3><p>{item.description}</p></article>)}</div></div>
+          <div className="container"><SectionHeading index="05" english="WHAT I DO" title={<span id="strengths-title">AIGC创作链路</span>} description="从一个小灵感到一段成品视频" /><div className="strengths__grid">{strengths.map((item) => <article className="strength-card glass reveal" key={item.number} data-reveal-delay={(Number(item.number) - 1) * .1} onMouseMove={moveCardLight}><div className="strength-card__top"><span className="strength-card__symbol" aria-hidden="true">{item.symbol}</span><span className="strength-card__number">/ {item.number}</span></div><h3>{item.title}</h3><p>{item.description}</p></article>)}</div></div>
         </section>
 
         <section className="contact" id="contact" aria-labelledby="contact-title"><div className="contact__glow" /><div className="contact__stars" /><div className="contact__inner container"><p className="eyebrow contact__eyebrow reveal"><span className="eyebrow__line" /> THE NEXT FRAME</p><h2 id="contact-title" className="reveal" data-reveal-delay=".08">下一段故事，<br /><em>从这里开始。</em></h2><p className="reveal" data-reveal-delay=".16">如果你有一个想法，欢迎聊聊它能如何成为画面。</p><div className="contact__actions reveal" data-reveal-delay=".24"><a className="button button--gold" href={`mailto:${email}`}>联系我 <span aria-hidden="true">↗</span></a><button className="text-link contact__copy" type="button" onClick={copyEmail} title="点击复制邮箱" aria-live="polite"><span className="contact__copy-label"><span aria-hidden={copied}>{`邮箱：${email}`}</span>{copied && <span>已复制邮箱</span>}</span><span aria-hidden="true">⧉</span></button><button className="text-link contact__copy" type="button" onClick={copyWechat} title="点击复制微信号" aria-live="polite"><span className="contact__copy-label"><span aria-hidden={wechatCopied}>{`微信：${wechat}`}</span>{wechatCopied && <span>已复制微信号</span>}</span><span aria-hidden="true">⧉</span></button></div></div><footer className="site-footer container"><span>© {new Date().getFullYear()} 盖怡樵</span><span>AI / IP WRITER-DIRECTOR</span><a href="#top">回到天空 ↑</a></footer></section>
