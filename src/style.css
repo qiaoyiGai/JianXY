@@ -161,6 +161,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--dusk); outline-
 .strength-card { min-height: 290px; padding: 27px 18px 26px 0; border: 0; border-top: 1px solid #abb6ce; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
 .strength-card__top { display: flex; align-items: flex-start; justify-content: space-between; }
 .strength-card__symbol { display: grid; place-items: center; width: 56px; height: 56px; border: 1px solid #afb9d0; border-radius: 50%; color: #7185aa; font: 30px/1 Manrope, sans-serif; }
+.strength-card__symbol svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .strength-card__number { color: #7893a9; font: 600 11px Manrope, sans-serif; letter-spacing: .06em; }
 .strength-card h3 { margin: 56px 0 14px; color: var(--ink); font-size: 27px; font-weight: 500; line-height: 1.35; }
 .strength-card p { max-width: 280px; margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.9; }

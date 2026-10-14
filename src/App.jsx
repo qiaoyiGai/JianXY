@@ -3,11 +3,11 @@ import useAnimatedContent from './components/AnimatedContent.js'
 import HeroVideo from './components/HeroVideo.jsx'
 
 const email = '2320519758@qq.com'
+const neteaseEmail = '18766607768@163.com'
 const wechat = 'G18766607768'
 
 const works = [
   {
-    number: '01',
     title: '魔女回天票房 · 上篇',
     category: '创新剪辑',
     description: '动画题材的票房话题剪辑。',
@@ -17,8 +17,7 @@ const works = [
     className: 'wide',
   },
   {
-    number: '02',
-    title: '光线与色彩练习',
+    title: '调色作品',
     category: '调色',
     description: '以自然光场景呈现冷暖与层次。',
     poster: './media/color-one.webp',
@@ -27,7 +26,6 @@ const works = [
     className: 'wide letterbox',
   },
   {
-    number: '03',
     title: '金融专业采访',
     category: '拍摄 / 剪辑',
     description: '留学主题人物采访。',
@@ -37,7 +35,6 @@ const works = [
     className: 'portrait',
   },
   {
-    number: '04',
     title: '伦敦留学口播',
     category: '拍摄 / 剪辑',
     description: '留学内容的竖屏口播呈现。',
@@ -47,16 +44,6 @@ const works = [
     className: 'portrait',
   },
   {
-    number: '05',
-    title: '古风影像剪辑',
-    category: '剪辑',
-    description: '人物、节奏与氛围的短片练习。',
-    poster: './media/classic.webp',
-    video: './media/classic.mp4',
-    fullVideo: './media/classic-hq.mp4',
-  },
-  {
-    number: '06',
     title: '自然光调色练习',
     category: '调色',
     description: '以肤色和环境光为重点的画面练习。',
@@ -65,9 +52,8 @@ const works = [
     fullVideo: './media/color-two-hq.mp4',
   },
   {
-    number: '07',
     title: '大利实木工厂',
-    category: '口播作品',
+    category: '账号爆款作品 Ⅰ',
     description: '利挺胖东来，以有大爱的企业为榜样。',
     poster: './media/dali-factory.webp',
     video: './media/dali-factory.mp4',
@@ -75,9 +61,8 @@ const works = [
     className: 'portrait',
   },
   {
-    number: '08',
-    title: '慕狮王',
-    category: '口播作品',
+    title: '慕狮王板材',
+    category: '账号爆款视频 Ⅱ',
     description: '经销商还算人吗？',
     poster: './media/mushiwang.webp',
     video: './media/mushiwang.mp4',
@@ -87,10 +72,10 @@ const works = [
 ]
 
 const strengths = [
-  { symbol: '✧', number: '01', title: 'AI编导', description: '从创意设定到视觉表达，组织可执行的影像方案。' },
-  { symbol: '⌁', number: '02', title: 'IP编导', description: '围绕人物、主题与叙事节奏，建立内容的辨识度。' },
-  { symbol: '◌', number: '03', title: '视频剪辑', description: '用镜头顺序、声音与留白，让信息和情绪自然到达。' },
-  { symbol: '↗', number: '04', title: '内容运营', description: '把创作放进发布与反馈的过程，持续调整表达。' },
+  { symbol: <svg viewBox="0 0 24 24"><path d="M12 5a3 3 0 0 0-5.8-1A4 4 0 0 0 3 10a4 4 0 0 0 1 7 4 4 0 0 0 8 2V5Zm0 0a3 3 0 0 1 5.8-1A4 4 0 0 1 21 10a4 4 0 0 1-1 7 4 4 0 0 1-8 2" /><path d="M7 4v3m-4 3h3l2 2m-4 5h3l1-2m9-11v3m4 3h-3l-2 2m4 5h-3l-1-2" /></svg>, number: '01', title: '选题/灵感确定', description: '可以是一个想法、一个二创方向、一段改编思路' },
+  { symbol: <svg viewBox="0 0 24 24"><path d="M14 3H5v18h14V8l-5-5Zm0 0v5h5M8 12h8M8 16h8" /></svg>, number: '02', title: '脚本/剧本撰写', description: '根据灵感/选题生成提示词/脚本' },
+  { symbol: <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1" /><path d="M12 4v16M3 12h18M5 9l2-2 2 2m6 8 2-2 2 2" /></svg>, number: '03', title: '分镜生成', description: '根据脚本/提示词进行文生图、图生图等' },
+  { symbol: <svg viewBox="0 0 24 24"><rect x="3" y="7" width="12" height="12" rx="2" /><path d="m15 11 6-3v10l-6-3M6 7V4h6v3" /></svg>, number: '04', title: '音画合成', description: '根据分镜生成视频，后剪辑包装' },
 ]
 
 function SectionHeading({ index, english, title, description }) {
@@ -123,7 +108,7 @@ function moveCardLight(event) {
   })
 }
 
-function WorkCard({ work, onOpen }) {
+function WorkCard({ work, number, onOpen }) {
   const videoRef = useRef(null)
 
   function playPreview() {
@@ -140,7 +125,7 @@ function WorkCard({ work, onOpen }) {
   }
 
   return (
-    <button className={`work-card glass reveal ${work.className || ''}`} data-reveal-delay={((Number(work.number) - 1) % 2) * .1} type="button" onClick={() => { stopPreview(); onOpen(work) }} onMouseMove={moveCardLight} onMouseEnter={playPreview} onMouseLeave={stopPreview} onFocus={playPreview} onBlur={stopPreview} aria-label={`播放作品：${work.title}`}>
+    <button className={`work-card glass reveal ${work.className || ''}`} data-reveal-delay={((Number(number) - 1) % 2) * .1} type="button" onClick={() => { stopPreview(); onOpen(work) }} onMouseMove={moveCardLight} onMouseEnter={playPreview} onMouseLeave={stopPreview} onFocus={playPreview} onBlur={stopPreview} aria-label={`播放作品：${work.title}`}>
       <div className="work-card__media">
         <img src={work.poster} alt="" loading="lazy" decoding="async" width={work.className === 'portrait' ? 540 : 1280} height={work.className === 'portrait' ? 960 : 720} />
         <video ref={videoRef} muted loop playsInline preload="none" aria-hidden="true" onPlaying={(event) => {
@@ -152,7 +137,7 @@ function WorkCard({ work, onOpen }) {
       </div>
       <div className="work-card__copy">
         <div>
-          <div className="work-card__meta"><span className="work-card__number">{work.number} / {String(works.length).padStart(2, '0')}</span><span className="work-card__category">{work.category}</span></div>
+          <div className="work-card__meta"><span className="work-card__number">{number} / {String(works.length).padStart(2, '0')}</span><span className="work-card__category">{work.category}</span></div>
           <h3>{work.title}</h3>
           <p>{work.description}</p>
         </div>
@@ -269,7 +254,7 @@ export default function App() {
           <div className="hero__content container">
             <p className="eyebrow hero__eyebrow"><span className="eyebrow__line" /> AI / IP WRITER-DIRECTOR</p>
             <h1 id="hero-title">让想象，<br /><em>落在画面里。</em></h1>
-            <p className="hero__lead">AI编导 / IP编导<br />从创意、影像到传播，认真对待每一帧表达。</p>
+            <p className="hero__lead">短视频编导/AI编导<br />从创意、影像到传播，认真对待每一帧表达。</p>
             <div className="hero__actions"><a className="button button--gold" href="#works">浏览作品 <span aria-hidden="true">↗</span></a><a className="text-link" href="#contact">联系我 <span aria-hidden="true">↓</span></a></div>
           </div>
           <div className="hero__bottom container"><span>01 / 05</span><span>SCROLL TO EXPLORE</span><span className="hero__scroll-line" /></div>
@@ -283,20 +268,21 @@ export default function App() {
             </div>
             <div className="about__content">
               <div className="section-heading reveal"><div className="section-heading__meta"><span>02</span><span className="hairline" /><span>ABOUT ME</span></div><h2 id="about-title">在故事和画面之间，<br />找到属于内容的光。</h2></div>
-              <p className="about__intro reveal" data-reveal-delay=".08">你好，我是盖怡樵。我的工作围绕 AI编导与IP编导展开，关注一个想法如何变成能被看见、也值得被记住的内容。</p>
-              <p className="about__body reveal" data-reveal-delay=".16">这里收录了剪辑、拍摄与调色作品。关于 AIGC 的更多项目，会随着作品完成继续加入。</p>
+              <p className="about__intro reveal" data-reveal-delay=".08">我的工作围绕编导全SOP展开，擅长用AI对SOP提效</p>
+              <p className="about__body reveal" data-reveal-delay=".16">这里收录了拍摄、剪辑与调色作品还有AIGC作品。后续会不断完善</p>
               <a className="about__mail reveal" data-reveal-delay=".24" href={`mailto:${email}`}><span className="about__mail-icon">✉</span>{email}<span aria-hidden="true">↗</span></a>
+              <a className="about__mail reveal" data-reveal-delay=".28" href={`mailto:${neteaseEmail}`}><span className="about__mail-icon">✉</span>{neteaseEmail}<span aria-hidden="true">↗</span></a>
               <div className="stats reveal" data-reveal-delay=".32"><div className="stat"><strong>{String(works.length).padStart(2, '0')}</strong><span>精选作品</span></div><div className="stat"><strong>03</strong><span>已收录方向</span></div><div className="stat"><strong>∞</strong><span>继续探索的画面</span></div></div>
             </div>
           </div>
         </section>
 
         <section className="works section-pad" id="works" aria-labelledby="works-title">
-          <div className="container"><SectionHeading index="03" english="VIDEO PORTFOLIO" title={<span id="works-title">视频作品展示区</span>} description="点击卡片观看完整视频，更多作品将陆续更新。" /><div className="works__grid">{works.map((work) => <WorkCard key={work.number} work={work} onOpen={setActiveWork} />)}</div><p className="works__footnote">持续更新，记录每一次创作。</p></div>
+          <div className="container"><SectionHeading index="03" english="VIDEO PORTFOLIO" title={<span id="works-title">视频作品展示区</span>} description="点击卡片观看完整视频，更多作品将陆续更新。" /><div className="works__grid">{works.map((work, index) => <WorkCard key={work.video} work={work} number={String(index + 1).padStart(2, '0')} onOpen={setActiveWork} />)}</div><p className="works__footnote">持续更新ing</p></div>
         </section>
 
         <section className="strengths section-pad" id="strengths" aria-labelledby="strengths-title">
-          <div className="container"><SectionHeading index="04" english="WHAT I DO" title={<span id="strengths-title">一条完整的创作链路。</span>} description="从想法、制作到发布，让表达更清晰，也更有辨识度。" /><div className="strengths__grid">{strengths.map((item) => <article className="strength-card glass reveal" key={item.number} data-reveal-delay={(Number(item.number) - 1) * .1} onMouseMove={moveCardLight}><div className="strength-card__top"><span className="strength-card__symbol" aria-hidden="true">{item.symbol}</span><span className="strength-card__number">/ {item.number}</span></div><h3>{item.title}</h3><p>{item.description}</p></article>)}</div></div>
+          <div className="container"><SectionHeading index="04" english="WHAT I DO" title={<span id="strengths-title">AIGC创作链路</span>} description="从一个小灵感到一段成品视频" /><div className="strengths__grid">{strengths.map((item) => <article className="strength-card glass reveal" key={item.number} data-reveal-delay={(Number(item.number) - 1) * .1} onMouseMove={moveCardLight}><div className="strength-card__top"><span className="strength-card__symbol" aria-hidden="true">{item.symbol}</span><span className="strength-card__number">/ {item.number}</span></div><h3>{item.title}</h3><p>{item.description}</p></article>)}</div></div>
         </section>
 
         <section className="contact" id="contact" aria-labelledby="contact-title"><div className="contact__glow" /><div className="contact__stars" /><div className="contact__inner container"><p className="eyebrow contact__eyebrow reveal"><span className="eyebrow__line" /> THE NEXT FRAME</p><h2 id="contact-title" className="reveal" data-reveal-delay=".08">下一段故事，<br /><em>从这里开始。</em></h2><p className="reveal" data-reveal-delay=".16">如果你有一个想法，欢迎聊聊它能如何成为画面。</p><div className="contact__actions reveal" data-reveal-delay=".24"><a className="button button--gold" href={`mailto:${email}`}>联系我 <span aria-hidden="true">↗</span></a><button className="text-link contact__copy" type="button" onClick={copyEmail} title="点击复制邮箱" aria-live="polite"><span className="contact__copy-label"><span aria-hidden={copied}>{`邮箱：${email}`}</span>{copied && <span>已复制邮箱</span>}</span><span aria-hidden="true">⧉</span></button><button className="text-link contact__copy" type="button" onClick={copyWechat} title="点击复制微信号" aria-live="polite"><span className="contact__copy-label"><span aria-hidden={wechatCopied}>{`微信：${wechat}`}</span>{wechatCopied && <span>已复制微信号</span>}</span><span aria-hidden="true">⧉</span></button></div></div><footer className="site-footer container"><span>© {new Date().getFullYear()} 盖怡樵</span><span>AI / IP WRITER-DIRECTOR</span><a href="#top">回到天空 ↑</a></footer></section>
